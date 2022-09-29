@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Quartz Alt Chicle
+Comment=GTK Theme
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Quartz Alt Chicle
+MetacityTheme=Quartz Alt Chicle
+IconTheme=Marwaita
+CursorTheme=Marwaita
+CursorSize=24
