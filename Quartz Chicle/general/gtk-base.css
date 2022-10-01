@@ -348,6 +348,7 @@ check,
 radio,
 treeview.view check:selected,
 treeview.view radio:selected,
+treeview.view radio:checked:selected,
 .view check:not(:checked):selected,
 .view radio:not(:checked):selected,
 check.view:not(treeview):not(:checked):selected,
@@ -469,7 +470,8 @@ iconview.content-view.check:not(list),
 .view check:not(:checked):selected,
 .view radio:not(:checked):selected ,
 check.view:not(treeview):not(:checked):selected,
-radio.view:not(treeview):not(:checked):selected
+radio.view:not(treeview):not(:checked):selected,
+treeview.view check
 { border-color: @gtk_fg_color;}
 
 .boxed-list,
@@ -996,6 +998,13 @@ check:checked:disabled,
 radio:checked:disabled,
 check:indeterminate:disabled,
 radio:indeterminate:disabled,
+treeview.view check:disabled,
+treeview.view radio:disabled,
+treeview.view check:checked:disabled,
+treeview.view radio:checked:disabled,
+treeview.view check:indeterminate:disabled,
+treeview.view radio:indeterminate:disabled,
+treeview.view check:not(:checked):disabled,
 .inline-toolbar button.flat:disabled,
 .inline-toolbar button:disabled,
 .titlebar button:not(.suggested-action):not(.destructive-action).text-button:disabled,
@@ -2543,7 +2552,14 @@ row.activatable:selected radio:disabled,
 treeview.view check:disabled:selected,
 treeview.view radio:disabled:selected{}
 
-treeview.view:selected:disabled{ color: alpha(@gtk_fg_color,0.5);}
+treeview.view:selected:disabled,
+treeview.view check:disabled,
+treeview.view radio:disabled,
+treeview.view check:checked:disabled,
+treeview.view radio:checked:disabled,
+treeview.view check:indeterminate:disabled,
+treeview.view radio:indeterminate:disabled
+{ color: alpha(@gtk_fg_color,0.5);}
 
 /* Sidebar Highlight */
 .sidebar row.activatable:selected,
