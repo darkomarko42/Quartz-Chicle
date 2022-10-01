@@ -1328,6 +1328,10 @@ treeview.view radio:checked,
 treeview.view radio:indeterminate
 {color: @gtk_selected_bg_color; border-color: @gtk_selected_bg_color;}
 
+treeview.view radio:checked:selected:not(:disabled),
+treeview.view radio:indeterminate:selected:not(:disabled)
+{color: @gtk_selected_bg_color;}
+
 /* Sizes of check and radio */
 check,
 radio,
