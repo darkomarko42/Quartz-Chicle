@@ -354,7 +354,8 @@ treeview.view radio:checked:selected,
 check.view:not(treeview):not(:checked):selected,
 radio.view:not(treeview):not(:checked):selected,
 filechooser .sidebar .frame,
-filechooser placessidebar.sidebar
+filechooser placessidebar.sidebar,
+scale.marks-after highlight
 {background-color: transparent;}
 
 /* Drag and Drop */
@@ -520,7 +521,7 @@ progressbar trough,
 scale highlight,
 scale trough,
 levelbar block
-{min-height: 4px; min-width: 4px;}
+{min-height: 10px; min-width: 10px;}
 
 /* this fix the size of comboboxes */
 combobox button cellview { padding: 0 2px;}
@@ -536,7 +537,7 @@ scale highlight,
 scale trough,
 levelbar trough,
 levelbar block
-{border-radius: 4.0px;}
+{border-radius: 8.0px;}
 
 flowbox flowboxchild { padding: 3px; }
 
@@ -733,24 +734,23 @@ headerbar windowhandle viewswitcher button:not(.suggested-action):not(.destructi
 .raven scale highlight,
 .titlebar scale highlight,
 .titlebar progressbar progress,
-.titlebar scale:hover slider,
 .titlebar scale.marks-after slider,
 .titlebar scale.marks-before slider,
 headerbar scale highlight,
 headerbar progressbar progress,
-headerbar scale:hover slider,
 headerbar scale.marks-after slider,
 headerbar scale.marks-before slider,
 infobar scale highlight,
 infobar progressbar progress,
-infobar scale:hover slider,
 infobar scale.marks-after slider,
 infobar scale.marks-before slider,
 .drop-shadow scale highlight,
 .drop-shadow progressbar progress,
-.drop-shadow scale:hover slider,
 .drop-shadow scale.marks-after slider,
-.drop-shadow scale.marks-before slider {background-color: currentcolor; color: inherit; border: none;}
+.drop-shadow scale.marks-before slider,
+.osd scale highlight,
+progressbar.osd progress
+{background-color: currentcolor; color: inherit; border: none;}
 
 .titlebar scale trough,
 .titlebar progressbar trough,
@@ -1135,15 +1135,15 @@ toolbar.inline-toolbar:not(actionbar) toolbutton > button.flat
 
 .inline-toolbar:not(actionbar) button:first-child,
 toolbar.inline-toolbar:not(actionbar) toolbutton:first-child > button.flat
-{ border-top-left-radius: 4.0px; border-bottom-left-radius: 4.0px; }
+{ border-top-left-radius: 8.0px; border-bottom-left-radius: 8.0px; }
 
 .inline-toolbar:not(actionbar) button:last-child,
 toolbar.inline-toolbar:not(actionbar) toolbutton:last-child > button.flat
-{ border-right-style: solid; border-top-right-radius: 4.0px; border-bottom-right-radius: 4.0px;}
+{ border-right-style: solid; border-top-right-radius: 8.0px; border-bottom-right-radius: 8.0px;}
 
 .inline-toolbar:not(actionbar) button:only-child,
 toolbar.inline-toolbar:not(actionbar) toolbutton:only-child > button.flat
-{ border-style: solid; border-radius: 4.0px; }
+{ border-style: solid; border-radius: 8.0px; }
 
 .linked:not(.vertical) > button:dir(ltr):not(:first-child), .linked:not(.vertical) > button:dir(rtl):not(:last-child) { margin-left: 0px; }
 
@@ -1446,7 +1446,7 @@ levelbar block{}
 
 progressbar trough,
 scale trough,
-levelbar block{background-color: alpha(@gtk_selected_bg_color,0.2);}
+levelbar block{background-color: alpha(currentcolor,0.2);}
 
 progressbar progress,
 scale highlight{margin: 0px;}
@@ -1470,24 +1470,24 @@ switch,
 switch slider{border-radius: 9999px;}
 
 switch{
-  color: currentcolor;
-  background-color: transparent;
+  color: alpha(currentcolor,0.7);
+  background-color: currentcolor;
   background-clip: border-box;
-  border: 4px solid transparent;
-  box-shadow: inset 0 0 0 9999px alpha(currentcolor,0.3);
+  border: none;
+  box-shadow: none;
 }
 
 switch slider {
-  margin: -2px;
+  margin: 4px;
   background-color: currentcolor;
   min-height: 16px;
   min-width: 16px;
   border:  none;
-  box-shadow: 0px 1px 2px @gtk_shadow;
-  color: white;
+  box-shadow: none;
+  color: @gtk_bg_color;
 }
 
-switch:checked, switch:checked slider{color: @gtk_selected_bg_color;}
+switch:checked{color: @gtk_selected_bg_color;}
 
 switch:disabled,
 switch slider:disabled,
@@ -1511,18 +1511,17 @@ scale trough{padding: 0px;}
 scale slider{ background-color: transparent; box-shadow: none; border-radius: 9999px; border-width: 0px; border-style: none; border-color: transparent;}
 
 scale.horizontal slider,
-scale.vertical slider{ padding: 6px; margin: -8px;}
+scale.vertical slider{ padding: 0px; margin: 0px;}
 
-scale:hover slider,
 scale.marks-after slider,
-scale.marks-before slider{background-color: @gtk_selected_bg_color; }
+scale.marks-before slider{background-color: @gtk_selected_bg_color; padding: 6px; }
 
 scale.color slider
 {
 	background-color: transparent;
 	border: 4px solid white;
 	box-shadow: 0 0 0 1px alpha(black,0.25), inset 0 0 0 1px alpha(black,0.25);
-	padding: 2px;
+	padding: 4px;
 }
 
 /* Scrollbars */
@@ -1558,15 +1557,15 @@ notebook > header.bottom {border-width: 1px 0 0 0;}
 notebook > header.left {border-width: 0 1px 0 0;}
 notebook > header.right {border-width: 0 0 0 1px;}
 
-notebook > header.top > tabs > tab:hover:not(:checked),tabbox tab:hover:not(:checked){box-shadow: inset 0 -2px alpha(currentcolor,0.3);}
-notebook > header.bottom > tabs > tab:hover:not(:checked){box-shadow: inset 0 2px alpha(currentcolor,0.3);}
-notebook > header.left > tabs > tab:hover:not(:checked){box-shadow: inset -2px 0 alpha(currentcolor,0.3);}
-notebook > header.right > tabs > tab:hover:not(:checked){box-shadow: inset 2px 0 alpha(currentcolor,0.3);}
+notebook > header.top > tabs > tab:hover:not(:checked),tabbox tab:hover:not(:checked),
+notebook > header.bottom > tabs > tab:hover:not(:checked),
+notebook > header.left > tabs > tab:hover:not(:checked),
+notebook > header.right > tabs > tab:hover:not(:checked){ background-color: alpha(currentcolor,0.1);}
 
-notebook > header.top > tabs > tab:checked,tabbox tab:checked{box-shadow: inset 0 -2px currentcolor;}
-notebook > header.bottom > tabs > tab:checked{box-shadow: inset 0 2px currentcolor;}
-notebook > header.left > tabs > tab:checked{box-shadow: inset -2px 0 currentcolor;}
-notebook > header.right > tabs > tab:checked{box-shadow: inset 2px 0 currentcolor;}
+notebook > header.top > tabs > tab:checked,tabbox tab:checked,
+notebook > header.bottom > tabs > tab:checked,
+notebook > header.left > tabs > tab:checked,
+notebook > header.right > tabs > tab:checked{}
 
 tabbox tab:checked,
 notebook > header.top > tabs > tab:checked,
@@ -1581,13 +1580,15 @@ notebook > header.left > tabs > tab:last-child,
 notebook > header.right > tabs > tab:last-child{}
 
 tabbox tab,
-notebook tab{margin: 0px; border-color: transparent; font-weight: bold; border-radius: 0;}
+notebook tab{margin: 4px; border-color: transparent; font-weight: bold; border-radius: 8.0px;}
 
 /* Hdy Tab */
 tabbox tab{ }
 
 tabbox tab:checked,
-notebook tab:checked{ background-color: transparent;}
+notebook tab:checked,
+tabbox tab:checked:hover,
+notebook tab:checked:hover{ background-color: alpha(currentcolor,0.2);}
 
 tabbox tab button{ padding: 2px; margin: 4px;}
 
@@ -1757,7 +1758,7 @@ headerbar,
 	color: @gtk_titlebar_fg_color;
 	background-color: @gtk_titlebar_bg_color;
 	background-image: none;
-	border-bottom: 1px solid @gtk_transparent_border;
+	border-bottom: 1px solid alpha(@gtk_transparent_border,0.5);
 	box-shadow: none;
 }
 
@@ -1847,7 +1848,7 @@ menu,
 
 accelerator { color: alpha(currentColor,0.5); }
 
-.background.popup { background-color: transparent;	border-radius: 4.0px;}
+.background.popup { background-color: transparent;	border-radius: 8.0px;}
 
 menubar,
 .menubar,
@@ -1920,7 +1921,7 @@ popover.background > contents,
 .budgie-popover .sidebar .frame row.activatable:selected,
 .budgie-popover list .menuitem:hover,
 modelbutton.flat:hover
-{border-radius: 4.0px;}
+{border-radius: 8.0px;}
 
 menu menuitem.chromium,
 .menu menuitem.chromium,
@@ -2011,7 +2012,7 @@ actionbar {
 	background-color: @gtk_sidebar_color;
 }
 
-dialog actionbar{ border-radius: 0 0 4.0px 4.0px;}
+dialog actionbar{ border-radius: 0 0 8.0px 8.0px;}
 
 .inline-toolbar{
 	padding: 4px;
@@ -2080,7 +2081,7 @@ infobar label:disabled{color: alpha(currentcolor,0.5);}
 	margin: 6px;
 	background-color: black;
 	color: white;
-	border-radius:	4.0px;
+	border-radius:	8.0px;
 }
 
  .floating-bar button {
@@ -2106,7 +2107,7 @@ toast
 { background-color: alpha(black,0.8); color: white; border: none;}
 
 .app-notification,
-.gedit-search-slider{border-radius: 0 0 4.0px 4.0px; padding: 8px;}
+.gedit-search-slider{border-radius: 0 0 8.0px 8.0px; padding: 8px;}
 
 .osd button,
 .osd spinbutton:not(.vertical),
@@ -2198,7 +2199,7 @@ window.dialog.message .dialog-action-area
 messagedialog .linked:not(.vertical) > button:dir(ltr):not(:last-child),
 messagedialog .linked:not(.vertical) > button:dir(ltr):not(:first-child),
 window.dialog.message .dialog-action-area button
-{ margin: 0 4px; border-radius: 4.0px;}
+{ margin: 0 4px; border-radius: 8.0px;}
 
 messagedialog button,
 .budgie-session-dialog button,
@@ -2214,7 +2215,7 @@ window.dialog.message.csd .dialog-action-area button:first-child
 .budgie-session-dialog .linked.horizontal > button:last-child,
 .budgie-polkit-dialog .linked.horizontal > button:last-child,*/
 window.dialog.message.csd .dialog-action-area button:last-child
-{ border-radius: 4.0px;}
+{ border-radius: 8.0px;}
 
 messagedialog .linked button:only-child{}
 
@@ -2263,7 +2264,7 @@ list.content > row.expander:checked,
 list.content > row.expander:checked row.header,
 list.content > row.expander:checked + row,
 list.content > row.expander:checked + row.expander row.header 
-{border-radius: 4.0px 4.0px 0 0;}
+{border-radius: 8.0px 8.0px 0 0;}
 
 .background.csd,
 .background.csd revealer > actionbar,
@@ -2324,7 +2325,7 @@ list.content > row.expander:not(:checked):last-child row.header,
 list.content > row.expander.checked-expander-row-previous-sibling:not(:checked) row.header,
 list.content > row.expander.empty:checked row.header,
 list.content > row.expander list.nested > row:last-child
-{ border-radius: 0 0 4.0px 4.0px;}
+{ border-radius: 0 0 8.0px 8.0px;}
 
 .nautilus-window .sidebar .frame,
 window.background.csd > box.vertical > box.horizontal > frame > scrolledwindow > viewport.frame list,
@@ -2362,7 +2363,7 @@ window.background.csd > box.vertical > paned.horizontal > scrolledwindow,
 .background.csd paned .source-list:not(:selected),
 .sidebar .inline-toolbar,
 assistant .sidebar
-{ border-bottom-left-radius: 4.0px;}
+{ border-bottom-left-radius: 8.0px;}
 
 window.background.csd > box.vertical > box.horizontal > stack > widget > notebook.frame > stack,
 .view.cs-category-view,
@@ -2388,7 +2389,7 @@ window box grid stack grid actionbar,
 window.background.csd > leaflet > stack.background > widget > box.vertical > box.vertical > scrolledwindow > viewport.frame,
 window.background.csd > hdyleaflet > stack.background > widget > box.vertical > box.vertical > scrolledwindow > viewport.frame,
 window.background.csd > box.horizontal > stack.background > widget > box.vertical > box.vertical > scrolledwindow > viewport.frame
-{ border-bottom-right-radius: 4.0px;}
+{ border-bottom-right-radius: 8.0px;}
 
 /* new rounded apps */
 .rounded decoration,
@@ -2425,7 +2426,7 @@ list.content > row:last-child.expander:not(:checked),
 stack box.vertical box.vertical frame border,
 stack box.vertical box.vertical frame list,
 stack box.vertical box.vertical frame.view
-{ border-radius: 4.0px;}
+{ border-radius: 8.0px;}
 
 .background.maximized,
 .background.solid-csd,
@@ -2735,15 +2736,15 @@ spinner:checked:disabled { opacity: 0.5; }
 /* Nautilus */
 
 .nautilus-window .titlebar .path-bar-box{ 
-	border-radius: 4.0px;
+	border-radius: 8.0px;
 	background-color: alpha(@gtk_titlebar_button_color,0.5);
 	border: solid @gtk_transparent_border;
 	border-width: 1px 1px 1px 0;
 	background-clip: padding-box;
 	}
 	
-.titlebar .nautilus-path-bar{ margin: 4px; border-radius: 4.0px;}
-.titlebar .nautilus-path-bar button:not(.suggested-action):not(.destructive-action) {margin: 0px; background-color: transparent; border: none; border-radius: 4.0px;}
+.titlebar .nautilus-path-bar{ margin: 4px; border-radius: 8.0px;}
+.titlebar .nautilus-path-bar button:not(.suggested-action):not(.destructive-action) {margin: 0px; background-color: transparent; border: none; border-radius: 8.0px;}
 	
 .nautilus-window .titlebar .path-bar-box button.text-button{margin: 0; border-top: none; border-bottom: none; }
 
@@ -2781,10 +2782,10 @@ spinner:checked:disabled { opacity: 0.5; }
 { padding: 0px; }
 
 .contacts-editor-address entry:first-child,
-.contacts-editor-role entry:first-child{border-radius: 4.0px 4.0px 0 0; border-bottom: none;}
+.contacts-editor-role entry:first-child{border-radius: 8.0px 8.0px 0 0; border-bottom: none;}
 
 .contacts-editor-address entry:last-child,
-.contacts-editor-role entry:last-child{border-radius: 0 0 4.0px 4.0px;}
+.contacts-editor-role entry:last-child{border-radius: 0 0 8.0px 8.0px;}
 
 .contacts-editor-address entry:not(:first-child):not(:last-child){border-radius: 0px; border-bottom: none;}
 
@@ -2877,10 +2878,10 @@ popover menuitem{padding: 4px 12px;}
 	background-image: linear-gradient(to right, @STRAWBERRY_300 25%, @ORANGE_300 25%, @ORANGE_300 50%, @LIME_500 50%, @LIME_500 75%, @BLUEBERRY_500 75%);
 }
 
-radiobutton.image-button{ background-color: transparent; border: 1px solid transparent; padding: 4px; border-radius: 4.0px;}
+radiobutton.image-button{ background-color: transparent; border: 1px solid transparent; padding: 4px; border-radius: 8.0px;}
 radiobutton.image-button:checked{ background-color: alpha(@gtk_selected_bg_color,0.2); border-color: @gtk_selected_bg_color; }
 
-.dynamic-notebook .view:not(treeview):selected{background-color: alpha(@gtk_selected_bg_color,0.2); border-radius: 4.0px;}
+.dynamic-notebook .view:not(treeview):selected{background-color: alpha(@gtk_selected_bg_color,0.2); border-radius: 8.0px;}
 
 .storage-bar .fill-block{padding: 6px; background-color:  alpha(@gtk_fg_color,0.3); box-shadow: inset 0 0 0 1px @gtk_transparent_border;}
 .storage-bar .fill-block.empty-block{background-color: alpha(@gtk_fg_color,0.15);}
@@ -2913,7 +2914,7 @@ button.btn_round.flat:disabled
 window.notification .draw-area,
 .card {
 	background-color: @gtk_base_color;
-	border-radius: 4.0px;
+	border-radius: 8.0px;
 	box-shadow: 0 0 0 1px @gtk_transparent_border, 0 2px 4px @gtk_shadow; }
 	
 window.notification .draw-area label.title { font-weight: 700; }
@@ -3021,16 +3022,16 @@ scale.temperature:dir(rtl) trough { background-image: linear-gradient(to left, @
 
 frame.raven-frame > border {border: none;}
 
-.raven .raven-background{ border-radius: 4.0px;}
+.raven .raven-background{ border-radius: 8.0px;}
 widget.raven-background{ border: 1px solid @gtk_transparent_border;}
 
 .raven button.flat{}
 
 calendar.raven-calendar {border-radius: 0px; border-color: transparent; background-color: transparent; border-style: solid;}
 
-calendar.raven-calendar :selected {color: @panel_bg; background-color: @panel_fg; border-radius: 4.0px;}
+calendar.raven-calendar :selected {color: @panel_bg; background-color: @panel_fg; border-radius: 8.0px;}
 
-.raven-mpris {background-color: alpha(@panel_fg,0.6); color: @panel_bg; margin: 0px; border-radius: 0 0 4.0px 4.0px;} 
+.raven-mpris {background-color: alpha(@panel_fg,0.6); color: @panel_bg; margin: 0px; border-radius: 0 0 8.0px 8.0px;} 
 .raven-mpris button{ color: @panel_bg;}
 
 .raven .powerstrip{box-shadow: inset 0 1px @gtk_transparent_border;}
@@ -3042,7 +3043,7 @@ calendar.raven-calendar :selected {color: @panel_bg; background-color: @panel_fg
 .drop-shadow,
 .raven-notifications-view  list box.vertical row
 {
-	border-radius:	4.0px;
+	border-radius:	8.0px;
 	box-shadow: 0 0 0 1px @gtk_transparent_border;
 	border: none;
 }
@@ -3076,7 +3077,7 @@ window box.vertical scrolledwindow .frame .raven-background stack list
 .budgie-session-dialog .dialog-title { font-size: 120%;}
 
 .budgie-run-dialog {
-	border-radius:	4.0px;
+	border-radius:	8.0px;
 	box-shadow: none;
 }
 
@@ -3146,7 +3147,7 @@ button.flat.launcher image,
 
 .dock-mode{
 	margin: 4px;
-	border-radius:	4.0px;
+	border-radius:	8.0px;
 	border: 1px solid @gtk_transparent_border;
 }
 
@@ -3222,7 +3223,7 @@ button.flat.launcher image,
 XfdesktopIconView.view {
 	background: transparent;
 	color: white;
-	border-radius:	4.0px; } 
+	border-radius:	8.0px; } 
 	
 XfdesktopIconView.view .label { background: transparent; text-shadow: 1px 1px black;}
 

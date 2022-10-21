@@ -1,4 +1,4 @@
-gtk_color_scheme = "fg_color:#313131\nbg_color:#f5f5f5\nbase_color:#fff\ntext_color:#313131\nselected_bg_color:#ea4c89\nselected_fg_color:#fff\ntooltip_bg_color:#fff\ntooltip_fg_color:#313131"
+gtk_color_scheme = "fg_color:#313131\nbg_color:#eedee4\nbase_color:#fcf9fa\ntext_color:#313131\nselected_bg_color:#ea4c89\nselected_fg_color:#fff\ntooltip_bg_color:#fff\ntooltip_fg_color:#313131"
 
 style "default"
 {
@@ -83,7 +83,7 @@ style "entry"
 	xthickness = 4
 	ythickness = 4
 
-	engine "murrine" {contrast = 0.0 border_shades = { 0.85, 0.85 } }
+	engine "murrine" {contrast = 0.0 border_shades = { 0.85, 0.85 } roundness = 8}
 	
 	base[NORMAL] =  mix(0.15,@fg_color,@bg_color)
 }
@@ -93,7 +93,7 @@ style "button"
 	xthickness = 4
 	ythickness = 4
 
-	engine "murrine" { contrast = 0.0 border_shades = { 1.0, 1.0 } }
+	engine "murrine" { contrast = 0.0 border_shades = { 1.0, 1.0 } roundness = 8}
 
 	bg[NORMAL] =  mix(0.15,@fg_color,@bg_color)
 	bg[PRELIGHT] = mix(0.25, @fg_color,@base_color)

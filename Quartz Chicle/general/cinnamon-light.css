@@ -176,7 +176,7 @@ StButton.popup-menu-item,
 {background-color: transparent; border-color: transparent; box-shadow: none;}
 
 #panel
-{background-color: rgba(245,245,245, 0.8);}
+{background-color: rgba(252,249,250, 0.8);}
 
 .grouped-window-list-badge,
 .sound-player-overlay
@@ -205,7 +205,7 @@ StButton,
 .overview-empty-placeholder,
 .grouped-window-list-thumbnail-menu,
 #notification
-{background-color: #fff;}
+{background-color: #fcf9fa;}
 
 .popup-sub-menu,
 StButton:hover,

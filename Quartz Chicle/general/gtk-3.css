@@ -15,7 +15,7 @@
 	outline-style: dashed;
 	outline-offset: -3px;
 	outline-width: 1px;
-	-gtk-outline-radius: 4.0px;
+	-gtk-outline-radius: 8.0px;
 }
 
 frame > border,
@@ -43,10 +43,10 @@ headerbar.titlebar.windowhandle{ min-height: 38px; padding: 0px 4px; }
 window separator:first-child + headerbar:backdrop,
 window separator:first-child + headerbar,
 window headerbar:first-child:backdrop,
-window headerbar:first-child { border-top-left-radius: 4.0px; }
+window headerbar:first-child { border-top-left-radius: 8.0px; }
 
 window headerbar:last-child:backdrop,
-window headerbar:last-child { border-top-right-radius: 4.0px; }
+window headerbar:last-child { border-top-right-radius: 8.0px; }
 
 .background .titlebar:backdrop, .background .titlebar,
 dialog.background .titlebar:backdrop,
@@ -56,7 +56,7 @@ messagedialog.background .titlebar,
 window stack headerbar:first-child:backdrop,
 window stack headerbar:first-child,
 window stack headerbar:last-child:backdrop,
-window stack headerbar:last-child { border-top-left-radius: 4.0px; border-top-right-radius: 4.0px; }
+window stack headerbar:last-child { border-top-left-radius: 8.0px; border-top-right-radius: 8.0px; }
 
 headerbar.titlebar.windowhandle entry,
 headerbar.titlebar.windowhandle spinbutton,

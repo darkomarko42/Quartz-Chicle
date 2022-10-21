@@ -104,7 +104,7 @@ StEntry StLabel.hint-text,
 .app-folder-dialog,
 #keyboard,
 .modal-dialog
-{ background-color: #343434; }
+{ background-color: #362b30; }
 
 .calendar,
 .events-button,
@@ -118,9 +118,8 @@ StEntry StLabel.hint-text,
 .popup-menu StEntry,
 .modal-dialog StButton,
 .message-list .button,
-.notification-banner StButton,
-.popup-menu .button
-{background-color: #414141; box-shadow: none;}
+.notification-banner StButton
+{background-color: rgba(255,255,255, 0.1); box-shadow: none;}
 
 .osd-window,
 .switcher-list,
@@ -263,10 +262,10 @@ StEntry StLabel.hint-text,
 
 .datemenu-calendar-column,
 .popup-sub-menu,
-.calendar,
+/*.calendar,
 .events-button,
 .world-clocks-button,
-.weather-button,
+.weather-button,*/
 .message,
 .osd-window,
 .switcher-list,
@@ -316,8 +315,7 @@ StButton.modal-dialog-linked-button {margin: 0 8px;}
 .nm-dialog-scroll-view,
 .popup-sub-menu .popup-menu-item,
 .popup-sub-menu .popup-menu-section .popup-menu-item:last-child:hover,
-.popup-sub-menu .popup-menu-section .popup-menu-item:last-child:focus,
-.popup-menu-item
+.popup-sub-menu .popup-menu-section .popup-menu-item:last-child:focus
 {border-radius: 0px !important;}
 
 StButton,
@@ -334,8 +332,9 @@ StEntry,
 .switcher-list,
 .search-section-content,
 .message-media-control,
-.notification-banner StButton
-{border-radius: 4px !important;}
+.notification-banner StButton,
+.popup-menu-item
+{border-radius: 8px !important;}
 
 .window-close,
 .search-entry,
@@ -343,12 +342,11 @@ StEntry,
 StScrollBar StButton
 {border-radius: 9999px !important;}
 
-.popup-sub-menu,
-.popup-sub-menu .popup-menu-section:last-child .popup-menu-item:last-child
-.popup-sub-menu .popup-menu-item:last-child 
-{border-radius: 0px !important;}
+.popup-menu-item:checked{border-radius: 8px 8px 0px 0px !important;}
 
-.popup-menu-item:checked{border-radius: 0px !important;}
+.popup-sub-menu,
+.popup-sub-menu .popup-menu-section:last-child .popup-menu-item:last-child,
+.popup-sub-menu .popup-menu-item:last-child{border-radius: 0px 0px 8px 8px !important;}
 
 .calendar .calendar-day-base{ width: 32px; height: 32px; border-radius: 18px; border: 1px solid transparent;}
 
@@ -359,11 +357,11 @@ StScrollBar StButton
 	-arrow-base: 0px;/* ...this are the tail of the popover */
 	-arrow-border-radius: 4px;
 	-arrow-border-width: 1px;
-	-arrow-background-color: #343434;
+	-arrow-background-color: #282f37;
 	-arrow-border-color: rgba(0,0,0, 0.3);
 }
 
-.popup-menu-content,.candidate-popup-content {padding: 6px 0px; border: none;}
+.popup-menu-content,.candidate-popup-content {padding: 6px ; border: none;}
 
 .popup-menu-item{padding: 4px 12px; }
 

@@ -5,8 +5,8 @@
 
 @define-color gtk_fg_color mix(black,@gtk_bg_color,0.2);
 @define-color gtk_text_color @gtk_fg_color;
-@define-color gtk_bg_color #f5f5f5;
-@define-color gtk_base_color #fff;
+@define-color gtk_bg_color mix(@gtk_selected_bg_color,#eee,0.9);
+@define-color gtk_base_color mix(@gtk_bg_color,white,0.8);
 
 @define-color gtk_shadow alpha(black,0.5);
 @define-color gtk_button_shadow alpha(@gtk_shadow,0.2);

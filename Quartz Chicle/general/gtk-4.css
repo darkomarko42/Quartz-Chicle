@@ -14,7 +14,7 @@ frame,
 .frame
 {border: 1px solid @gtk_border;}
 
-window.background.csd{ border-radius: 4.0px;}
+window.background.csd{ border-radius: 8.0px;}
 
 .dialog box .dialog-action-area{border-spacing: 8px;}
 
